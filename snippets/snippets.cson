@@ -1,0 +1,41 @@
+'.source.js':
+  'React Storybook Story':
+    'prefix': 'rst'
+    'body': '''
+      import React from 'react';
+      import { storiesOf, action } from '@kadira/react-storybook';
+
+      import Button from '../Button';
+
+      storiesOf('${1:Button}')
+        .add('default ${1:Button}', () => (
+          <Button onClick={action('${1:Button}')}>${1:Button}</Button>
+        ))
+      ;
+
+      '''
+  'React Native Storybook Story':
+    'prefix': 'rnst'
+    'body': '''
+      import React from 'react';
+      import {
+        View,
+        Text,
+        Button,
+      } from 'react-native';
+      import { storiesOf, action } from '@kadira/react-native-storybook';
+
+      storiesOf('${1:Button}')
+        .add('default ${1:Button}', () => (
+          <View style={{ flex: 1 }}>
+            <Button
+              title="${1:Button}"
+              onPress={() => {
+                action('${1:Button}')('default ${1:Button}');
+              }}
+            />
+          </View>
+        ))
+      ;
+
+      '''
